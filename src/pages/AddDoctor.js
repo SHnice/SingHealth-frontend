@@ -19,7 +19,7 @@ export default function AddDoctor() {
 
         try {
             // Make a POST request to the Flask backend to register the doctor
-            const response = await axios.post('http://localhost:5000/register-doctor', {
+            const response = await axios.post('https://sing-health-backend.vercel.app/register-doctor', {
                 name,
                 email,
                 password,

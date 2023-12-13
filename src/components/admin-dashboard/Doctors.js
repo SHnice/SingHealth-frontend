@@ -18,7 +18,7 @@ export default function Doctors() {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/get-doctors');
+                const response = await axios.get('https://sing-health-backend.vercel.app/get-doctors');
                 setDoctors(response.data);
                 console.log(response.data)
             } catch (error) {
@@ -51,7 +51,7 @@ export default function Doctors() {
         }
         // Perform the edit action
         try {
-            await axios.put(`http://localhost:5000/edit-doctor/${selectedDoctorId}`, {
+            await axios.put(`https://sing-health-backend.vercel.app/edit-doctor/${selectedDoctorId}`, {
                 name,
                 email,
                 password,
@@ -62,7 +62,7 @@ export default function Doctors() {
             setOpenEditModal(false);
             toast.success('Doctor edited successfully')
             // Refresh the doctors list
-            const response = await axios.get('http://localhost:5000/get-doctors');
+            const response = await axios.get('https://sing-health-backend.vercel.app/get-doctors');
             setDoctors(response.data);
         } catch (error) {
             console.error('Error editing doctor:', error.message);
@@ -80,14 +80,14 @@ export default function Doctors() {
     const handleDeleteDoctor = async () => {
         // Perform the delete action
         try {
-            await axios.delete(`http://localhost:5000/delete-doctor/${selectedDoctorId}`);
+            await axios.delete(`https://sing-health-backend.vercel.app/delete-doctor/${selectedDoctorId}`);
 
             // Close the delete modal
             setOpenDeleteModal(false);
             toast.success('Doctor deleted successfully')
 
             // Refresh the doctors list
-            const response = await axios.get('http://localhost:5000/get-doctors');
+            const response = await axios.get('https://sing-health-backend.vercel.app/get-doctors');
             setDoctors(response.data);
         } catch (error) {
             console.error('Error deleting doctor:', error.message);
