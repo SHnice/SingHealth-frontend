@@ -18,7 +18,7 @@ export default function Doctors() {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/get-doctors');
+                const response = await axios.get('https://sing-health-backend.vercel.app/get-doctors');
                 setDoctors(response.data);
                 console.log(response.data)
             } catch (error) {
